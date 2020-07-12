@@ -3,55 +3,61 @@
 
 
 :root{
-/* color*/
-
-/* font*/
+    /* font*/
     dance-script: 'Dancing Script', cursive;
     galada:'Galada', cursive;
 
 }
 
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
-}
-
-td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
-}
 
 .shop{
     font-family:galada;
     color: white;
-    font-size: 48px;
-    /*text-shadow: 4px 4px 4px deeppink;*/
-    animation: blinkingText 2s infinite;
+    font-size: 60px;
+    background: linear-gradient(to right,#f8bbf3,#ef5695,#a5a4fb,#6dd0e5,#56efb0,#cffba4,#fafba4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*text-shadow: 4px 4px 4px #1a3646;*/
+    /*animation: blinkingText  4s infinite;*/
 }
 
-@keyframes blinkingText {
-    0%		{ color: #10c018;}
-    25%		{ color: #1056c0;}
-    50%		{ color: #ef0a1a;}
-    75%		{ color: #254878;}
-    100%	{ color: #04a1d5;}
-}
+/*@keyframes blinkingText {*/
+/*    0%		{ color: #a5d2f0;}*/
+/*    25%		{ color: #83c3eb;}*/
+/*    50%		{ color: #5ab4e6;}*/
+/*    75%		{ color: #00a6e1;}*/
+/*    100%	{ color: #1e506a;}*/
+/*}*/
 
 .shop1{
     font-family:galada;
-    color:white;
     font-size:20px;
-    text-shadow: 1px 1px 1px deeppink;
+    background: linear-gradient(to left,#f8bbf3,#ef5695,#a5a4fb,#6dd0e5,#56efb0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*animation: blinkingText  4s infinite;*/
 
 }
 #jumbotron-container{
     /*background-color: rgb(250, 119, 182);*/
-    background-image: linear-gradient(deeppink,lightpink);
+    /*background-image: linear-gradient(0deg, #fdd0e4 25%, #e3c6f0 25%, #e3c6f0 50%, #fdd0e4 50%, #fdd0e4 75%, #e3c6f0 75%, #e3c6f0 100%);*/
+    background-image: linear-gradient(#f9e4ff, #ffd7e1);
+}
+#container2{
+    background-image: linear-gradient(#ffd7e1,#ffe8d1, #fff9d1,#c4ffdd);
 }
 #form-container{
-    background-color: deeppink;
+    background-image:
+            /*linear-gradient(to right,rgba(227,198,240,0.52),rgba(253,208,228,0.73),rgba(186,246,255,0.82)),*/
+            url("img/jbt.jpeg");
+    background-size:cover;
 }
 #coffee-list{
-    /*background-image: url("img/jbt-img.jpeg");*/
+    background-image:
+            linear-gradient(to right,rgba(227,198,240,0.52),rgba(253,208,228,0.73),rgba(186,246,255,0.82)),
+            url("img/coffee.jpeg");
     height:500px;
+    background-size:cover;
+    /*background-image: linear-gradient(90deg, #fdd0e4 25%, #e3c6f0 25%, #e3c6f0 50%, #fdd0e4 50%, #fdd0e4 75%, #e3c6f0 75%, #e3c6f0 100%);*/
+    /*background-size: 80.00px 80.00px;*/
 }
