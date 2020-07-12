@@ -1,8 +1,8 @@
 "use strict"
 /**   *** TO DO ***
-Add <option>all</option> under <select id="roast-selection"> **PLACE BEFORE LIGHT ROAST; Update JS code
-Add search bar for coffee name
-Add "Add a Coffee" feature with roast dropdown and name function, plus submit button **CLONE?
+Add <option>all</option> under <select id="roast-selection"> **PLACE BEFORE LIGHT ROAST; Update JS code--COMPLETE
+Add search bar for coffee name --HANNAH
+Add "Add a Coffee" feature with roast dropdown and name function, plus submit button **CLONE? --HANNAH
 Swap table HTML for div; coffee name h2; roast as p; id as ???; do not display coffee ID; correct JS code to reflect new HTML code
 Swap tbody with another div; correct JS code to reflect new HTML code
 */
@@ -24,15 +24,50 @@ function addAllRoast () {
 }
 addAllRoast();
 
+//Replaces table and contents with divs, p and h2. tbody tag is replaced with h2 --- ***** INCOMPLETE!!! *****
+/**
+ let replaceTableFunc = function () {
+    //creates new div and sets id attribute
+    var divContainer = document.createElement("div");
+    divContainer.id = "coffeeTableHeader";
 
+    //creates content for new div
+    var divContainerContent = ;
+    // creates new header elements --- replaces th elements
+    var coffeeID = document.createElement("div");
+    var coffeeIDContent = document.createTextNode("ID");
+    coffeeID.appendChild(coffeeIDContent);
+    var coffeeName = document.createElement("h2");
+    var coffeeNameContent = document.createTextNode("NAME");
+    coffeeName.appendChild(coffeeNameContent);
+    var coffeeRoast = document.createElement("p");
+    var coffeeRoastContent = document.createTextNode("ROAST");
+    coffeeRoast.appendChild(coffeeRoastContent);
 
+    //creates new div for #coffees --- replaces the tbody element
+    var coffeesList = document.createElement("div");
+    coffeesList.id = "coffees";
+    }
+    var divContainerContentNode = ();
+    //divContainer.appendChild(divContainerContentNode);
+     console.log(divContainerContentNode);
+     console.log(divContainer);
+ }
+console.log(replaceTableFunc());
+let replaceTable = replaceTableFunc();
+console.log(typeof replaceTable);
+// designates elements to be replaced
+var tableEl = document.getElementsByName("table");
+var parentDiv = tableEl.body;
+parentDiv.replaceChild(replaceTable, tableEl);
 
+*/
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    var html = '<div class="coffee">';
+    html += '<div>' + coffee.id + '</div>';
+    html += '<h3>' + coffee.name + '</h3>';
+    html += '<p>' + coffee.roast + '</p>';
+    html += '</div>';
 
     return html;
 }
@@ -56,7 +91,7 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee); //returns all coffee types when all is submitted
         }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    coffeesDiv.innerHTML = renderCoffees(filteredCoffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -77,10 +112,10 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-var tbody = document.querySelector('#coffees');
+var coffeesDiv = document.querySelector('#coffees'); //change tbody to coffeesDiv
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
 
-tbody.innerHTML = renderCoffees(coffees);
+coffeesDiv.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
