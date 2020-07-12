@@ -1,4 +1,31 @@
 "use strict"
+/**   *** TO DO ***
+Add <option>all</option> under <select id="roast-selection"> **PLACE BEFORE LIGHT ROAST; Update JS code
+Add search bar for coffee name
+Add "Add a Coffee" feature with roast dropdown and name function, plus submit button **CLONE?
+Swap table HTML for div; coffee name h2; roast as p; id as ???; do not display coffee ID; correct JS code to reflect new HTML code
+Swap tbody with another div; correct JS code to reflect new HTML code
+*/
+
+
+//Adds all option
+function addAllRoast () {
+    //Creates new element
+    var allOptionTag = document.createElement("option");
+    var newAll = document.createTextNode("all");
+    allOptionTag.appendChild(newAll);
+
+    //References existing elements to receive new element
+    var roastSelection = document.getElementById("roast-selection");
+    var lightOption = roastSelection.firstElementChild;
+
+    //Inserts new element into referenced existing element
+    roastSelection.insertBefore(allOptionTag, lightOption);
+}
+addAllRoast();
+
+
+
 
 function renderCoffee(coffee) {
     var html = '<tr class="coffee">';
@@ -25,6 +52,8 @@ function updateCoffees(e) {
     coffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
+        } else if (selectedRoast === "all") {
+            filteredCoffees.push(coffee); //returns all coffee types when all is submitted
         }
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
