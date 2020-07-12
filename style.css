@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Galada&display=swap');
+
+
+
+:root{
+/* color*/
+
+/* font*/
+    dance-script: 'Dancing Script', cursive;
+    galada:'Galada', cursive;
+
+}
+
 table {
     border-collapse: collapse;
     margin: 15px 0;
@@ -6,4 +19,39 @@ table {
 td, th {
     border: 1px solid black;
     padding: 5px 10px;
+}
+
+.shop{
+    font-family:galada;
+    color: white;
+    font-size: 48px;
+    /*text-shadow: 4px 4px 4px deeppink;*/
+    animation: blinkingText 2s infinite;
+}
+
+@keyframes blinkingText {
+    0%		{ color: #10c018;}
+    25%		{ color: #1056c0;}
+    50%		{ color: #ef0a1a;}
+    75%		{ color: #254878;}
+    100%	{ color: #04a1d5;}
+}
+
+.shop1{
+    font-family:galada;
+    color:white;
+    font-size:20px;
+    text-shadow: 1px 1px 1px deeppink;
+
+}
+#jumbotron-container{
+    /*background-color: rgb(250, 119, 182);*/
+    background-image: linear-gradient(deeppink,lightpink);
+}
+#form-container{
+    background-color: deeppink;
+}
+#coffee-list{
+    /*background-image: url("img/jbt-img.jpeg");*/
+    height:500px;
 }
