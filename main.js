@@ -19,14 +19,15 @@ var coffees = [
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
+var addCoffeeButton = document.querySelector("#submit1");
 var roastSelection = document.querySelector('#roast-selection');
-var coffeeName= document.getElementById("coffee-name");
+var coffeeName = document.getElementById("coffee-name");
 tbody.innerHTML = renderCoffees(coffees);
-
-roastSelection.addEventListener('change', updateCoffees);
 roastSelection.addEventListener('change', selectedCoffee);
 coffeeName.addEventListener("keyup",selectedCoffee);
 submitButton.addEventListener("click",clickButton);
+addCoffeeButton.addEventListener("click", addNewCoffee);
+
 // function renderCoffee(coffee) {
 //     var html = '<tr class="coffee">';
 //     html += '<td>' + coffee.id + '</td>';
@@ -52,19 +53,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
-function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if(selectedRoast === "all"){
-            filteredCoffees.push(coffee);
-        } else if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        }
-    });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
-}
+
 
 function selectedCoffee(e) {
     e.preventDefault(e);
@@ -83,15 +72,26 @@ function selectedCoffee(e) {
             }
     });
      tbody.innerHTML = renderCoffees(filteredCoffees);
-     var coffeeEntered = coffeeName.value;
-     // console.log(coffeeName.value);
+
      return coffeeName.value;
     }
+    //IDEA: add another form with customer name and return alert e.g. "Dear " + customerName + ", you chose a cup of.."
 function clickButton(){
-    var answer = confirm("Dear, customer! You choose a cup of "+ coffeeName.value + " !Do you want to submit your order?")
+    var answer = confirm("Dear, customer! You choose a cup of "+ coffeeName.value + "! Do you want to submit your order?")
     if(answer)
     {
         alert("You submit your order successfully!");
     }
+}
+
+function addNewCoffee () {
+    var coffeeEntered = document.getElementById('coffee-name1').value;
+    var roastEntered = document.getElementById('roast-selection1').value;
+    var lastID = coffees.length + 1;
+    coffees.push({id: lastID, name: coffeeEntered, roast: roastEntered});
+
+    console.log(coffeeEntered);
+    console.log(roastEntered);
+    console.log(lastID);
 }
 
