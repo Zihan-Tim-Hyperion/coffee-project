@@ -20,10 +20,11 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-var coffeeName= document.getElementById("#coffee-name");
+var coffeeName= document.getElementById("coffee-name");
 tbody.innerHTML = renderCoffees(coffees);
 
 roastSelection.addEventListener('change', updateCoffees);
+roastSelection.addEventListener('change', selectedCoffee);
 coffeeName.addEventListener("keyup",selectedCoffee);
 // function renderCoffee(coffee) {
 //     var html = '<tr class="coffee">';
@@ -65,15 +66,18 @@ function updateCoffees(e) {
 }
 
 function selectedCoffee() {
+    console.log("We are in selected coffee");
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
         if (selectedRoast === "all") {
-            if (coffee.name.toLowerCase().includes(coffeeName.toLowerCase())) {
+            console.log(coffee.name);
+            console.log(coffee.name.toLowerCase());
+            if (coffee.name.toLowerCase().includes(coffeeName.value.toLowerCase())) {
                 filteredCoffees.push(coffee);
             }
         }else if (coffee.roast === selectedRoast) {
-                if (coffee.name.toLowerCase().includes(coffeeName.toLowerCase())) {
+                if (coffee.name.toLowerCase().includes(coffeeName.value.toLowerCase())) {
                     filteredCoffees.push(coffee);
                 }
 
