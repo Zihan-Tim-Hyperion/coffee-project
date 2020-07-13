@@ -89,9 +89,5 @@ function addNewCoffee () {
     var roastEntered = document.getElementById('roast-selection1').value;
     var lastID = coffees.length + 1;
     coffees.push({id: lastID, name: coffeeEntered, roast: roastEntered});
-
-    console.log(coffeeEntered);
-    console.log(roastEntered);
-    console.log(lastID);
 }
 
