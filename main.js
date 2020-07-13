@@ -26,6 +26,7 @@ tbody.innerHTML = renderCoffees(coffees);
 roastSelection.addEventListener('change', updateCoffees);
 roastSelection.addEventListener('change', selectedCoffee);
 coffeeName.addEventListener("keyup",selectedCoffee);
+submitButton.addEventListener("click",clickButton);
 // function renderCoffee(coffee) {
 //     var html = '<tr class="coffee">';
 //     html += '<td>' + coffee.id + '</td>';
@@ -65,14 +66,12 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-function selectedCoffee() {
-    console.log("We are in selected coffee");
+function selectedCoffee(e) {
+    e.preventDefault(e);
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
         if (selectedRoast === "all") {
-            console.log(coffee.name);
-            console.log(coffee.name.toLowerCase());
             if (coffee.name.toLowerCase().includes(coffeeName.value.toLowerCase())) {
                 filteredCoffees.push(coffee);
             }
@@ -83,7 +82,16 @@ function selectedCoffee() {
 
             }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+     tbody.innerHTML = renderCoffees(filteredCoffees);
+     var coffeeEntered = coffeeName.value;
+     // console.log(coffeeName.value);
+     return coffeeName.value;
     }
-
+function clickButton(){
+    var answer = confirm("Dear, customer! You choose a cup of "+ coffeeName.value + " !Do you want to submit your order?")
+    if(answer)
+    {
+        alert("You submit your order successfully!");
+    }
+}
 
