@@ -20,11 +20,11 @@ var coffees = [
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
-
+var coffeeName= document.getElementById("#coffee-name");
 tbody.innerHTML = renderCoffees(coffees);
 
 roastSelection.addEventListener('change', updateCoffees);
-
+coffeeName.addEventListener("keyup",selectedCoffee);
 // function renderCoffee(coffee) {
 //     var html = '<tr class="coffee">';
 //     html += '<td>' + coffee.id + '</td>';
@@ -36,8 +36,8 @@ roastSelection.addEventListener('change', updateCoffees);
 // }
 function renderCoffee(coffee){
    var html ="";
-    html += "<div class='d-flex align-items-center coffee-item my-3 mx-3'>" + "<h3 class='mx-2'>" + coffee.name + "</h3>" +
-        "<p class='my-0 mx-3 text-muted' >" + coffee.roast + "</p>" + "</div>";
+    html += "<div class='d-flex align-items-center coffee-item my-3 mx-3'>" + "<h3 class='hov p-2 mx-2'>" + coffee.name + "</h3>" +
+        "<p class='hov my-0 mx-3 p-2 text-muted' >" + coffee.roast + "</p>" + "</div>";
     // var html = "<div class=d-flex align-items-center>" + "<h3>" + coffee.name +"</h3>" + " <p mx-2>" + coffee.roast + "</p>" +"</div>"+"<br>";
     return html;
 }
@@ -64,5 +64,22 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+function selectedCoffee() {
+    var selectedRoast = roastSelection.value;
+    var filteredCoffees = [];
+    coffees.forEach(function(coffee) {
+        if (selectedRoast === "all") {
+            if (coffee.name.toLowerCase().includes(coffeeName.toLowerCase())) {
+                filteredCoffees.push(coffee);
+            }
+        }else if (coffee.roast === selectedRoast) {
+                if (coffee.name.toLowerCase().includes(coffeeName.toLowerCase())) {
+                    filteredCoffees.push(coffee);
+                }
+
+            }
+    });
+    tbody.innerHTML = renderCoffees(filteredCoffees);
+    }
 
 

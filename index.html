@@ -19,8 +19,11 @@
         <p class="shop1 lead">coffee — it’s part of your daily morning routine, your life force, and at times, your only motivation</p>
     </div>
 </div>
+
+<!--coffee list-->
 <div class="container-fluid d-flex my-0" id="container2">
     <div class="container mx-4 shadow my-5 overflow-auto" id="coffee-list">
+        <div class="container d-flex justify-content-center"><h1>Coffee Menu</h1></div>
             <div id="coffees"></div>
     </div>
         <!--    form select-->
@@ -35,7 +38,7 @@
                     <option value="medium">medium</option>
                     <option value="dark">dark</option>
                 </select>
-            <div>
+            </div>
             <div class="container-fluid d-flex flex-column px-0 my-2">
                 <label for="coffee-name" ><strong>Coffee Name</strong></label>
                 <input type="text"  class="coffee-name form-control" id="coffee-name" placeholder="Enter Coffee Name">
@@ -45,9 +48,27 @@
                 <input id="submit" type="submit" />
             </div>
         </form>
-    </div>
-    </div>
+        <form class="form listCoffee">
+            <div class="container-fluid d-flex flex-column">
+                <label for="roast-selection" ><strong>Roast</strong></label>
+                <select class="roast-selection from-control"id="roast-selection1">
+                    <option value="all">all</option>
+                    <option value="light">light</option>
+                    <option value="medium">medium</option>
+                    <option value="dark">dark</option>
+                </select>
+            </div>
+            <div class="container-fluid d-flex flex-column px-0 my-2">
+                    <label for="coffee-name" ><strong>Coffee Name</strong></label>
+                    <input type="text"  class="coffee-name form-control" id="coffee-name1" placeholder="Enter Coffee Name">
+            </div>
+            <br>
+            <div class="container-fluid d-flex flex-column px-0">
+                    <input id="submit1" type="submit" />
+            </div>
+        </form>
 </div>
+
 
 
 <!--<form>-->

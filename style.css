@@ -12,52 +12,38 @@
 
 .shop{
     font-family:galada;
-    color: white;
+    color: #ffcccb;
     font-size: 60px;
-    background: linear-gradient(to right,#f8bbf3,#ef5695,#a5a4fb,#6dd0e5,#56efb0,#cffba4,#fafba4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /*text-shadow: 4px 4px 4px #1a3646;*/
-    /*animation: blinkingText  4s infinite;*/
+    text-shadow:2px 2px 2px #324d4d;
 }
 
-/*@keyframes blinkingText {*/
-/*    0%		{ color: #a5d2f0;}*/
-/*    25%		{ color: #83c3eb;}*/
-/*    50%		{ color: #5ab4e6;}*/
-/*    75%		{ color: #00a6e1;}*/
-/*    100%	{ color: #1e506a;}*/
-/*}*/
 
 .shop1{
     font-family:galada;
     font-size:20px;
-    background: linear-gradient(to left,#f8bbf3,#ef5695,#a5a4fb,#6dd0e5,#56efb0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /*animation: blinkingText  4s infinite;*/
+    color: #ffcccb;
+    text-shadow:1px 1px 1px #324d4d
 
 }
 #jumbotron-container{
-    /*background-color: rgb(250, 119, 182);*/
-    /*background-image: linear-gradient(0deg, #fdd0e4 25%, #e3c6f0 25%, #e3c6f0 50%, #fdd0e4 50%, #fdd0e4 75%, #e3c6f0 75%, #e3c6f0 100%);*/
-    background-image: linear-gradient(#f9e4ff, #ffd7e1);
+    background-color: #5f9ea0;
+
 }
 #container2{
-    background-image: linear-gradient(#ffd7e1,#ffe8d1, #fff9d1,#c4ffdd);
+    background-image:url('img/jbt-img.jpeg');
+    background-size:cover ;
 }
-#form-container{
-    background-image:
-            /*linear-gradient(to right,rgba(227,198,240,0.52),rgba(253,208,228,0.73),rgba(186,246,255,0.82)),*/
-            url("img/jbt.jpeg");
-    background-size:cover;
-}
+
 #coffee-list{
-    background-image:
-            linear-gradient(to right,rgba(227,198,240,0.52),rgba(253,208,228,0.73),rgba(186,246,255,0.82)),
-            url("img/coffee.jpeg");
     height:500px;
-    background-size:cover;
-    /*background-image: linear-gradient(90deg, #fdd0e4 25%, #e3c6f0 25%, #e3c6f0 50%, #fdd0e4 50%, #fdd0e4 75%, #e3c6f0 75%, #e3c6f0 100%);*/
-    /*background-size: 80.00px 80.00px;*/
+    font-family:dance-script;
+    text-shadow:1px 1px 1px white;
+    color:#5f9ea0;
+    font-weight:bold;
+
+}
+
+p.hov:hover, h3.hov:hover, a:hover {
+    background-color: #243435;
+    border-radius:15px;
 }
