@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +34,8 @@
         <div><h1 class="coffee-list container d-flex justify-content-center mt-4" id="coffeeList">Coffee List</h1></div>
 
         <!--        1st form coffee list      important:must make the onsubmit :return false (unfresh the page)-->
-        <form class="form listCoffee" onsubmit="return false">
+        <form class="form listCoffee" >
+<!--            onsubmit="return false"-->
             <!--         1st   roast   -->
             <div class="container-fluid d-flex flex-column">
                 <label for="roast-selection" ><h3>Roast</h3></label>
@@ -68,7 +67,7 @@
         <div><h1 class="coffee-list container d-flex justify-content-center m-2" id="coffeeList2">Make Your Own Coffee Name</h1></div>
 
         <!--        2nd form for creat New Coffee-->
-        <form class="form listCoffee " onsubmit="return false">
+        <form class="form listCoffee " >
             <div class="container-fluid d-flex flex-column ">
                 <!--     2nd   roast-->
                 <label for="roast-selection" ><h3>Roast</h3></label>
@@ -82,7 +81,7 @@
             <!--            2nd New Coffee Name-->
             <div class="container-fluid d-flex flex-column px-0 my-2 mx-3">
                 <label for="coffee-name" ><h3>New Coffee Name</h3></label>
-                <input type="text"  class="coffee-name form-control" id="coffee-name1" placeholder="Enter Coffee Name">
+                <input type="text"  class="coffee-name form-control" id="coffee-name1" placeholder="Enter New Coffee Name">
             </div>
             <br>
 
@@ -91,7 +90,6 @@
                 <input id="submit1" type="submit" value="Add Your New Coffee Name" class="py-2"/>
             </div>
         </form>
-
     </div>
 </div>
 

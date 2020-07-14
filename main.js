@@ -24,7 +24,7 @@ var roastSelection = document.querySelector('#roast-selection');
 var coffeeName= document.getElementById("coffee-name");
 var outputOrder= document.getElementById("output");
 //creates var for evenlistener to add a coffee
-var addCoffee = document.getElementById("submit1")
+var addCoffee = document.getElementById("submit1");
 //tbody :get coffee list showed on the LEFT of the page
 tbody.innerHTML = renderCoffees(coffees);
 
@@ -54,7 +54,9 @@ function renderCoffees(coffees) {
 
 //choose the roast (all , dark, light, medium), then push coffees under certain roast to filteredCoffees, then showed them on left side of page
 function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
+    if(e) {
+        e.preventDefault(); // don't submit the form, we just want to update the data
+    }
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
@@ -69,7 +71,9 @@ function updateCoffees(e) {
 
 //check the name user entered if matched certain coffee under certain roast, output all the matched coffee names on the left page
 function selectedCoffee(e) {
-    e.preventDefault(e);
+    if(e) {
+        e.preventDefault(); // don't submit the form, we just want to update the data
+    }
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
@@ -107,11 +111,26 @@ function clickButton() {
     }
 }
 
-//Function to add a new coffee to list
-function addNewCoffee () {
+function addNewCoffee(e) {
     var coffeeEntered = document.getElementById('coffee-name1').value;
     var roastEntered = document.getElementById('roast-selection1').value;
     var lastID = coffees.length + 1;
-    coffees.push({id: lastID, name: coffeeEntered, roast: roastEntered});
-}
+    if(coffeeEntered.length>0){
+        coffees.push({id: lastID, name: coffeeEntered, roast: roastEntered});
 
+        updateCoffees(e);
+    } else{
+        alert("Please enter a New Coffee Name");
+    }
+
+}
+//Function to add a new coffee to list
+document.addEventListener('DOMContentLoaded', function(e) {
+    let localCoffees = localStorage.getItem("NewCoffeesArray");
+    if(localCoffees !== null) {
+        coffees = JSON.parse(localCoffees);
+    }
+    localStorage.setItem('NewCoffeesArray', JSON.stringify(coffees));
+        console.log(coffees);
+        updateCoffees();
+});
