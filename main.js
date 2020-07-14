@@ -16,33 +16,31 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-
+//need add # in front of ID when use querySelector
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
+//no # in front of ID when use getElementById
 var coffeeName= document.getElementById("coffee-name");
+var outputOrder= document.getElementById("output");
+
+//tbody :get coffee list showed on the LEFT of the page
 tbody.innerHTML = renderCoffees(coffees);
 
 roastSelection.addEventListener('change', updateCoffees);
 roastSelection.addEventListener('change', selectedCoffee);
 coffeeName.addEventListener("keyup",selectedCoffee);
 submitButton.addEventListener("click",clickButton);
-// function renderCoffee(coffee) {
-//     var html = '<tr class="coffee">';
-//     html += '<td>' + coffee.id + '</td>';
-//     html += '<td>' + coffee.name + '</td>';
-//     html += '<td>' + coffee.roast + '</td>';
-//     html += '</tr>';
-//
-//     return html;
-// }
+
+//coffee.name + coffee.roast
 function renderCoffee(coffee){
-   var html ="";
+    var html ="";
     html += "<div class='d-flex align-items-center coffee-item my-3 mx-3'>" + "<h3 class='hov p-2 mx-2'>" + coffee.name + "</h3>" +
         "<p class='hov my-0 mx-3 p-2 text-muted' >" + coffee.roast + "</p>" + "</div>";
     // var html = "<div class=d-flex align-items-center>" + "<h3>" + coffee.name +"</h3>" + " <p mx-2>" + coffee.roast + "</p>" +"</div>"+"<br>";
     return html;
 }
+
 
 function renderCoffees(coffees) {
     var html = '';
@@ -52,6 +50,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
+//choose the roast (all , dark, light, medium), then push coffees under certain roast to filteredCoffees, then showed them on left side of page
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
@@ -66,6 +65,7 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+//check the name user entered if matched certain coffee under certain roast, output all the matched coffee names on the left page
 function selectedCoffee(e) {
     e.preventDefault(e);
     var selectedRoast = roastSelection.value;
@@ -76,22 +76,33 @@ function selectedCoffee(e) {
                 filteredCoffees.push(coffee);
             }
         }else if (coffee.roast === selectedRoast) {
-                if (coffee.name.toLowerCase().includes(coffeeName.value.toLowerCase())) {
-                    filteredCoffees.push(coffee);
-                }
-
+            if (coffee.name.toLowerCase().includes(coffeeName.value.toLowerCase())) {
+                filteredCoffees.push(coffee);
             }
+
+        }
     });
-     tbody.innerHTML = renderCoffees(filteredCoffees);
-     var coffeeEntered = coffeeName.value;
-     // console.log(coffeeName.value);
-     return coffeeName.value;
-    }
-function clickButton(){
-    var answer = confirm("Dear, customer! You choose a cup of "+ coffeeName.value + " !Do you want to submit your order?")
-    if(answer)
-    {
-        alert("You submit your order successfully!");
+    tbody.innerHTML = renderCoffees(filteredCoffees);
+    return coffeeName.value;
+}
+
+//    click the button, then let user check if want to submit the order. if YES, then log "make the order!"
+function clickButton() {
+    if (coffeeName.value) {
+        var order = confirm("Dear, customer! You choose a cup of " + coffeeName.value + " coffee !Do you want to submit your order?");
+        // var  saveOutputItem= localStorage.getItem("");
+        console.log(coffeeName.value);
+        // localStorage.setItem(saveOutputItem);
+        if (order) {
+            alert("You submit your order successfully!");
+            // localStorage.setItem(saveOutputItem);
+            // console.log(coffeeName.value);
+            outputOrder.innerHTML = "<h3 class='d-flex align-items-center mx-2' id='order'>Dear, customer! You ordered a cup of " + coffeeName.value.charAt(0).toUpperCase()+coffeeName.value.slice(1) + " coffee!</h3>";
+
+        }
+    } else{
+        alert("Dear customer, please enter a coffee name to submit an order");
     }
 }
+
 
