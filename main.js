@@ -23,7 +23,8 @@ var roastSelection = document.querySelector('#roast-selection');
 //no # in front of ID when use getElementById
 var coffeeName= document.getElementById("coffee-name");
 var outputOrder= document.getElementById("output");
-
+//creates var for evenlistener to add a coffee
+var addCoffee = document.getElementById("submit1")
 //tbody :get coffee list showed on the LEFT of the page
 tbody.innerHTML = renderCoffees(coffees);
 
@@ -31,6 +32,7 @@ roastSelection.addEventListener('change', updateCoffees);
 roastSelection.addEventListener('change', selectedCoffee);
 coffeeName.addEventListener("keyup",selectedCoffee);
 submitButton.addEventListener("click",clickButton);
+addCoffee.addEventListener("click",addNewCoffee);
 
 //coffee.name + coffee.roast
 function renderCoffee(coffee){
@@ -105,4 +107,11 @@ function clickButton() {
     }
 }
 
+//Function to add a new coffee to list
+function addNewCoffee () {
+    var coffeeEntered = document.getElementById('coffee-name1').value;
+    var roastEntered = document.getElementById('roast-selection1').value;
+    var lastID = coffees.length + 1;
+    coffees.push({id: lastID, name: coffeeEntered, roast: roastEntered});
+}
 
