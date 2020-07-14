@@ -9,10 +9,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
     <title>Welcome to H & T Coffee Shop</title>
 </head>
 <body>
+<!--jumbotron-->
+
 <div class="jumbotron jumbotron-fluid my-0" id="jumbotron-container">
     <div class="container">
         <h1 class="shop display-4">Welcome to H & T Coffee Shop</h1>
@@ -20,16 +21,22 @@
     </div>
 </div>
 
-<!--coffee list-->
+
 <div class="container-fluid d-flex my-0" id="container2">
+
+    <!--coffee list shows on the LEFT of the page-->
     <div class="container mx-4 shadow my-5 overflow-auto" id="coffee-list">
         <div class="container d-flex justify-content-center"><h1>Coffee Menu</h1></div>
-            <div id="coffees"></div>
+        <div id="coffees"></div>
     </div>
-        <!--    form select-->
-    <div class="container mx-4 shadow my-5 " id="form-container">
-        <div><h1 class="coffee-list container d-flex justify-content-center" id="coffeeList">Coffee List</h1></div>
-        <form class="form listCoffee">
+
+    <!-- options on the RIGHT side of the page-->
+    <div class="container mx-0 shadow my-5 " id="form-container">
+        <div><h1 class="coffee-list container d-flex justify-content-center mt-4" id="coffeeList">Coffee List</h1></div>
+
+        <!--        1st form coffee list      important:must make the onsubmit :return false (unfresh the page)-->
+        <form class="form listCoffee" onsubmit="return false">
+            <!--         1st   roast   -->
             <div class="container-fluid d-flex flex-column">
                 <label for="roast-selection" ><h3>Roast</h3></label>
                 <select class="roast-selection from-control"id="roast-selection">
@@ -39,17 +46,30 @@
                     <option value="dark">dark</option>
                 </select>
             </div>
-            <div class="container-fluid d-flex flex-column px-0 my-2">
-                <label for="coffee-name" ><h3>Coffee Name</h3></label>
-                <input type="text"  class="coffee-name form-control" id="coffee-name" placeholder="Enter Coffee Name">
+            <!--     1st coffee Name    -->
+            <div class="container-fluid d-flex flex-column px-0 my-2 mx-3">
+                <label for="coffee-name"><h3>Coffee Name</h3></label>
+                <input type="text"  class="coffee-name form-control " id="coffee-name" placeholder="Enter Coffee Name">
             </div>
-             <br>
-            <div class="container-fluid d-flex flex-column px-0">
+            <br>
+
+            <!--     1st   submit button   -->
+            <div class="container-fluid d-flex flex-column px-0 mx-4">
                 <input id="submit" type="submit" />
-            </div>
+            </div >
+
+            <!--output for submit the order successfully-->
+            <div class="container d-flex justify-content-center mt-4" id="output"></div>
         </form>
-        <form class="form listCoffee">
-            <div class="container-fluid d-flex flex-column">
+
+
+        <!--        form for the 2nd coffee list      -->
+        <div><h1 class="coffee-list container d-flex justify-content-center m-2" id="coffeeList2">Make Your Own Coffee</h1></div>
+
+        <!--        2nd form for creat New Coffee-->
+        <form class="form listCoffee ">
+            <div class="container-fluid d-flex flex-column " onsubmit="return false">
+                <!--     2nd   roast-->
                 <label for="roast-selection" ><h3>Roast</h3></label>
                 <select class="roast-selection from-control"id="roast-selection1">
                     <option value="all">all</option>
@@ -58,40 +78,36 @@
                     <option value="dark">dark</option>
                 </select>
             </div>
-            <div class="container-fluid d-flex flex-column px-0 my-2">
-                    <label for="coffee-name" ><h3>Coffee Name</h3></label>
-                    <input type="text"  class="coffee-name form-control" id="coffee-name1" placeholder="Enter Coffee Name">
+
+            <!--            2nd New Coffee Name-->
+            <div class="container-fluid d-flex flex-column px-0 my-2 mx-3">
+                <label for="coffee-name" ><h3>Coffee Name</h3></label>
+                <input type="text"  class="coffee-name form-control" id="coffee-name1" placeholder="Enter Coffee Name">
             </div>
             <br>
-            <div class="container-fluid d-flex flex-column px-0">
-                    <input id="submit1" type="submit" />
+
+            <!--            2nd submit button-->
+            <div class="container-fluid d-flex flex-column px-0 mx-3">
+                <input id="submit1" type="submit" />
             </div>
         </form>
-</div>
-</div>
+
+    </div>
+</div>>
+
+
+    <!--link the js file-->
+
+    <script src="main.js"></script>
 
 
 
-<!--<form>-->
-<!--    <label for="roast-selection"></label>-->
-<!--    <select id="roast-selection">-->
-<!--        <option>light</option>-->
-<!--        <option>medium</option>-->
-<!--        <option>dark</option>-->
-<!--    </select>-->
-<!--    <input id="submit" type="submit" />-->
-<!--</form>-->
-
-
-<script src="main.js"></script>
-
-
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 </body>
+
 </html>

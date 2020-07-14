@@ -1,3 +1,4 @@
+/*use font from google.font*/
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Galada&display=swap');
 
 
@@ -9,14 +10,12 @@
 
 }
 
-
 .shop{
     font-family:galada;
     color: #ffcccb;
     font-size: 60px;
-    text-shadow:2px 2px 2px #324d4d;
+    text-shadow:3px 3px 3px #324d4d;
 }
-
 
 .shop1{
     font-family:galada;
@@ -25,18 +24,22 @@
     /*text-shadow:1px 1px 1px white;*/
 
 }
+
 #jumbotron-container{
     background-color: #5f9ea0;
 
 }
+
 #container2{
     background-image:url('img/jbt-img.jpeg');
     background-size:cover ;
     color:#5f9ea0;
 }
+
 #form-container{
     height:800px;
 }
+
 #coffee-list{
     height:800px;
     font-family:dance-script;
@@ -50,13 +53,13 @@ p.hov:hover, h3.hov:hover, a:hover {
     background-color: #243435;
     border-radius:15px;
 }
-#coffeeList{
+
+#coffeeList,#coffeeList2{
     font-family:dance-script;
-    /*font-weight:bold;*/
     color:#5f9ea0;
-    /*color:#be5e6b;*/
-    text-shadow:1px 1px 1px white
+    text-shadow:1px 1px 1px #254b50;
 }
+
 label{
     text-shadow:1px 1px 1px white;
 }
@@ -64,23 +67,41 @@ label{
 #submit,#submit1{
     background-color:#5f9ea0;
     color: #ffcccb;
-    padding:5px 32px;
-    text-align:center;
+    padding:5px 42px;
     border: 3px solid white;
     border-radius: 10px;
 }
+
 select {
     position: relative;
     font-family:dance-script;
     background-color:#5f9ea0;
     padding:5px 32px;
-    text-align:center;
+    /*text-align:center;*/
     border: 3px solid white;
     border-radius: 10px;
     font-size:20px;
     color:#ffcccb;
 }
-select.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
+
+select:hover,
+select:focus {
+    background-color:#254b50;
+    color: #be5e6b;
+}
+
+#coffee-name,#coffee-name1{
+    width:95%;
+    background-color: #eea5a7;
+    border-radius: 10px;
+    border: 3px solid white;
+}
+
+#submit, #submit1{
+    width:95%;
+}
+
+#order{
+    color:#254b50;
+    text-shadow:1px 1px 1px white;
 }
