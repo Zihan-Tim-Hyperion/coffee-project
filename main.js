@@ -72,7 +72,7 @@ function updateCoffees(e) {
 //check the name user entered if matched certain coffee under certain roast, output all the matched coffee names on the left page
 function selectedCoffee(e) {
     if(e) {
-        e.preventDefault(); // don't submit the form, we just want to update the data
+        e.preventDefault(); // don't submit the form, we just want to update the data,won't let me to send data to somewhere else, only the front end;
     }
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
@@ -103,8 +103,9 @@ function clickButton() {
             alert("You submit your order successfully!");
             // localStorage.setItem(saveOutputItem);
             // console.log(coffeeName.value);
-            outputOrder.innerHTML = "<h3 class='d-flex align-items-center mx-2' id='order'>Dear, customer! You ordered a cup of " + coffeeName.value.charAt(0).toUpperCase()+coffeeName.value.slice(1) + " coffee!</h3>";
-
+          var submitOrder   = "<h3 class='d-flex align-items-center mx-2' id='order'>Dear, customer! You ordered a cup of " + coffeeName.value.charAt(0).toUpperCase()+coffeeName.value.slice(1) + " coffee!</h3>";
+            localStorage.setItem('submitOrder', submitOrder);
+            outputOrder.innerHTML= submitOrder;
         }
     } else{
         alert("Dear customer, please enter a coffee name to submit an order");
@@ -112,12 +113,15 @@ function clickButton() {
 }
 
 function addNewCoffee(e) {
+    if(e) {
+        e.preventDefault(); // don't submit the form, we just want to update the data,won't let me to send data to somewhere else, only the front end;it will prevent the page refresh automatically
+    }
     var coffeeEntered = document.getElementById('coffee-name1').value;
     var roastEntered = document.getElementById('roast-selection1').value;
     var lastID = coffees.length + 1;
     if(coffeeEntered.length>0){
         coffees.push({id: lastID, name: coffeeEntered, roast: roastEntered});
-
+        localStorage.setItem('NewCoffeesArray', JSON.stringify(coffees));//save the NewCoffees array to local storage
         updateCoffees(e);
     } else{
         alert("Please enter a New Coffee Name");
@@ -125,12 +129,13 @@ function addNewCoffee(e) {
 
 }
 //Function to add a new coffee to list
-document.addEventListener('DOMContentLoaded', function(e) {
-    let localCoffees = localStorage.getItem("NewCoffeesArray");
-    if(localCoffees !== null) {
-        coffees = JSON.parse(localCoffees);
+document.addEventListener('DOMContentLoaded', function(e) {//the code finished loading, run this function automatically
+    let localCoffees = localStorage.getItem("NewCoffeesArray");//get the New Coffee Array from local storage
+    let localSubmitOrder = localStorage.getItem("submitOrder");
+    if(localCoffees !== null) {//help to check if the key exist in the localstorage
+        coffees = JSON.parse(localCoffees);//change the coffees string saved in local storage to array
+    } if(localSubmitOrder !== null){
+        outputOrder.innerHTML= localSubmitOrder;
     }
-    localStorage.setItem('NewCoffeesArray', JSON.stringify(coffees));
-        console.log(coffees);
-        updateCoffees();
+        updateCoffees();//update html for coffees
 });
